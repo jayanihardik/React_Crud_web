@@ -1,0 +1,13 @@
+
+.d-flex{
+    display: flex  !important;
+    align-items: center;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.card {
+    width: 500px!important;
+}

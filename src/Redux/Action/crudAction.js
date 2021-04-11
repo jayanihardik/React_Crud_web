@@ -3,7 +3,7 @@ export const addTaskListUsingThunk = (obj) => {
         const data = await fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
         const res = await data.json()
         const setStatus = res.map(x => {
-            x.completed = false
+            x.completed = true
             return x
         })
         dispatch({

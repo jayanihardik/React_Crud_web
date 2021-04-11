@@ -4,6 +4,7 @@ import { Input } from 'semantic-ui-react'
 import { Button } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid } from 'semantic-ui-react'
+import { toast } from 'react-toastify';
 
 import { createTask, addTaskListUsingThunk, deleteTask, changeTaskStatus } from '../../Redux/Action/crudAction'
 
@@ -23,6 +24,7 @@ const Crud = () => {
         };
         dispatch(createTask(taskObj))
         setTask('')
+        toast.success("Task add successfully")
     }
 
     const handleChange = (e) => {
@@ -35,6 +37,7 @@ const Crud = () => {
             id
         }
         dispatch(changeTaskStatus(obj))
+        toast.success("Status change successfully")
     }
 
     useEffect(() => {
@@ -54,7 +57,6 @@ const Crud = () => {
                     <Input size='large' value={task} className="mr-2" onChange={(e) => handleChange(e)} placeholder='Enter task' />
                     <Button content='add' onClick={() => addTask()} secondary />
                 </div>
-
                 {crudList && crudList.map(x => {
                     return (
                         <div key={x.id}>
@@ -74,7 +76,10 @@ const Crud = () => {
                                                             <div>
                                                                 <label></label>
                                                                 <input type="checkbox" defaultChecked={x.completed} onChange={(e) => handleChangeCheckBox(x.id, e)} name="example" />
-                                                                <button className="ui icon button ml-2" onClick={(e) => dispatch(deleteTask(x.id))}>
+                                                                <button className="ui icon button ml-2" onClick={(e) => {
+                                                                    toast.error("Task removed successfully")
+                                                                    dispatch(deleteTask(x.id))
+                                                                }}>
                                                                     <i aria-hidden="true" className="delete icon"></i>
                                                                 </button>
                                                             </div>

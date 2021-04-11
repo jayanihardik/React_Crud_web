@@ -1,0 +1,9 @@
+.card-center{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.justify-space-between{
+    justify-content: space-between;
+}

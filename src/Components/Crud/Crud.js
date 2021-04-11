@@ -7,13 +7,11 @@ import { Grid } from 'semantic-ui-react'
 import { toast } from 'react-toastify';
 
 import { createTask, addTaskListUsingThunk, deleteTask, changeTaskStatus } from '../../Redux/Action/crudAction'
-
 import './Crud.css'
 
 const Crud = () => {
     const dispatch = useDispatch();
     const crudList = useSelector(state => state.crud)
-
     const [task, setTask] = useState('')
 
     const addTask = () => {
@@ -37,7 +35,7 @@ const Crud = () => {
             id
         }
         dispatch(changeTaskStatus(obj))
-        toast.success("Status change successfully")
+        toast.success("Status changed successfully")
     }
 
     useEffect(() => {

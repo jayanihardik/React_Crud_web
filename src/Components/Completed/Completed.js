@@ -7,9 +7,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { changeTaskStatus } from '../../Redux/Action/crudAction';
 import './Completed.css';
 
-
 const grid = 8;
-
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
@@ -48,7 +46,7 @@ const Completed = () => {
             id
         }
         dispatch(changeTaskStatus(obj))
-        toast.success("Status change")
+        toast.success("Status changed successfully")
     }
 
     const onDragEnd = (result) => {
